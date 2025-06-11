@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <title>Notion Title Widget</title>
+  <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .title {
+      font-size: 48px;
+      padding: 24px 40px;
+      border-radius: 18px;
+      font-family: 'ZCOOL KuaiLe', cursive;
+      text-align: center;
+      box-shadow: 4px 4px 12px rgba(0,0,0,0.1);
+      max-width: 90%;
+    }
+
+    /* 默认主题 */
+    .default {
+      background: #fdf6ec;
+      color: #5c4033;
+    }
+
+    /* 火焰励志主题 */
+    .fire {
+      background: #fff3f1;
+      background-clip: padding-box;
+      color: transparent;
+      background-image: linear-gradient(90deg, #ff4e50, #f9d423);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 2px 2px 6px rgba(255, 100, 100, 0.2);
+    }
+
+    /* 宁静蓝主题 */
+    .calm {
+      background: #e1f5fe;
+      color: #0277bd;
+    }
+  </style>
+</head>
+<body>
+  <div id="title" class="title default">📌 Daily Plan</div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const text = params.get("text") || "📌 Daily Plan";
+    const theme = params.get("theme") || "default";
+
+    const titleEl = document.getElementById("title");
+    titleEl.textContent = decodeURIComponent(text);
+    titleEl.classList.remove("default", "fire", "calm");
+    titleEl.classList.add(theme);
+  </script>
+</body>
+</html>
