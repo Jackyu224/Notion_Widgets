@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>每日激励</title>
+  <link href="https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: #fefefe;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .quote {
+      font-family: 'Zhi Mang Xing', cursive;
+      font-size: 48px;
+      text-align: center;
+      color: #ff5c5c;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+      padding: 20px;
+      max-width: 90%;
+    }
+  </style>
+</head>
+<body>
+  <div class="quote" id="quote">加载中...</div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const text = params.get("text") || "每天进步一点点";
+    document.getElementById("quote").innerText = decodeURIComponent(text);
+  </script>
+</body>
+</html>
