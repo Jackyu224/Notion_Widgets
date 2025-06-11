@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <title>颜文字提示</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: #fff9f0;
+      font-family: "Noto Sans SC", sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 100vh;
+      color: #333;
+    }
+    .emoji {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+    }
+    .text {
+      font-size: 1.8rem;
+      text-align: center;
+      padding: 0 20px;
+      max-width: 80%;
+    }
+  </style>
+</head>
+<body>
+  <div class="emoji" id="emoji">٩(ˊᗜˋ*)و</div>
+  <div class="text" id="text">今天也要加油！</div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const emoji = params.get("emoji") || "٩(ˊᗜˋ*)و";
+    const text = params.get("text") || "今天也要加油！";
+
+    document.getElementById("emoji").innerText = decodeURIComponent(emoji);
+    document.getElementById("text").innerText = decodeURIComponent(text);
+  </script>
+</body>
+</html>
