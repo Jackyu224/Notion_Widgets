@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <title>标题展示</title>
   <style>
     body {
       margin: 0;
@@ -20,10 +21,21 @@
       color: #443322;
       border-radius: 16px;
       box-shadow: 4px 4px 12px rgba(0,0,0,0.1);
+      max-width: 90%;
+      text-align: center;
+      word-break: break-word;
     }
   </style>
 </head>
 <body>
-  <div class="title">📌 每日计划 | Daily Plan</div>
+  <div class="title" id="title">📌 每日计划 | Daily Plan</div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const text = params.get("text");
+    if (text) {
+      document.getElementById("title").innerText = decodeURIComponent(text);
+    }
+  </script>
 </body>
 </html>

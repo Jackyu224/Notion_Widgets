@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>手帐想法展示</title>
+  <style>
+    body {
+      background: #fffafc;
+      font-family: "Microsoft Yahei", "ZCOOL KuaiLe", sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .note {
+      background: #fff0f5;
+      color: #c94f7c;
+      border: 2px dashed #ffc0cb;
+      border-radius: 16px;
+      padding: 24px 32px;
+      font-size: 24px;
+      max-width: 90vw;
+      max-height: 60vh;
+      overflow-y: auto;
+      word-break: break-word;
+      box-shadow: 4px 4px 12px rgba(255, 192, 203, 0.2);
+      line-height: 1.6;
+      text-align: center;
+    }
+
+    /* 滚动条样式优化 */
+    .note::-webkit-scrollbar {
+      width: 6px;
+    }
+    .note::-webkit-scrollbar-thumb {
+      background-color: #ffb6c1;
+      border-radius: 3px;
+    }
+  </style>
+</head>
+<body>
+  <div class="note" id="note">🧸「想去日本，靠技能吃饭，有更高的薪资、更稳定的生活、更多眼界。」</div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const raw = params.get("text") || "🧸「想去日本，靠技能吃饭，有更高的薪资、更稳定的生活、更多眼界。」";
+    const text = decodeURIComponent(raw);
+
+    const noteEl = document.getElementById("note");
+    noteEl.innerText = `🧸「${text}」`;
+
+    // 自动缩放字体
+    if (text.length > 50) {
+      noteEl.style.fontSize = "20px";
+    }
+    if (text.length > 100) {
+      noteEl.style.fontSize = "16px";
+    }
+  </script>
+</body>
+</html>
